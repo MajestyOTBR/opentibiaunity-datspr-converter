@@ -162,7 +162,7 @@ message SpriteInfo {
 	uint32 bounding_square = 7;
 	SpriteAnimation animation = 8;
 	bool is_opaque = 9;
-	repeated Box bounding_box_per_direction = 10;
+	repeated Box bounding_boxes_per_direction = 10;
 }
 
 message Box {

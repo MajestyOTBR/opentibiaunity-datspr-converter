@@ -57,7 +57,15 @@ namespace OpenTibiaUnity.Core.Converter
             foreach (var tibiaAppearance in tibiaAppearances.Missile)
                 openTibiaAppearances.Missles.Add(ConvertAppearance(tibiaAppearance));
 
-            // TODO special meaning sprite ids
+            if (tibiaAppearances.SpecialMeaningAppearanceIds != null) {
+                openTibiaAppearances.SpecialMeaningAppearanceIDs = new Protobuf.Appearances.SpecialMeaningAppearanceIds();
+                openTibiaAppearances.SpecialMeaningAppearanceIDs.GoldCoinId = tibiaAppearances.SpecialMeaningAppearanceIds.GoldCoinId;
+                openTibiaAppearances.SpecialMeaningAppearanceIDs.PlatinumCoinId = tibiaAppearances.SpecialMeaningAppearanceIds.PlatinumCoinId;
+                openTibiaAppearances.SpecialMeaningAppearanceIDs.CrystalCoinId = tibiaAppearances.SpecialMeaningAppearanceIds.CrystalCoinId;
+                openTibiaAppearances.SpecialMeaningAppearanceIDs.TibiaCoinId = tibiaAppearances.SpecialMeaningAppearanceIds.TibiaCoinId;
+                openTibiaAppearances.SpecialMeaningAppearanceIDs.StampedLetterId = tibiaAppearances.SpecialMeaningAppearanceIds.StampedLetterId;
+                openTibiaAppearances.SpecialMeaningAppearanceIDs.SupplyStashId = tibiaAppearances.SpecialMeaningAppearanceIds.SupplyStashId;
+            }
 
             m_JsonTokens.Add(new AppearancesToken() {
                 file = "appearances.dat"
@@ -361,7 +369,7 @@ namespace OpenTibiaUnity.Core.Converter
                 try {
                     m_SpriteSheet.Add(new SpriteTypeImpl() {
                         File = (string)fileToken,
-                        SpriteType = (int)spriteTypeToken,
+                        SpriteType = (int)spriteTypeToken + 1,
                         FirstSpriteID = (uint)firstSpriteIDToken,
                         LastSpriteID = (uint)lastSpriteIDToken
                     });

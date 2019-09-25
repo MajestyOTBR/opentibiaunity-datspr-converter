@@ -481,7 +481,7 @@ namespace OpenTibiaUnity.Core.Converter
                             sprites[type].AddRange(frameGroup.SpriteInfo.SpriteIDs);
                             frameGroupsArray[type].Add(frameGroup);
                         } else {
-                            Console.WriteLine(string.Format("Invalid width or height, currently there is maximum support for 64x64 sprites (%d, %d)", detail.Width, detail.Height));
+                            Console.WriteLine(string.Format("Invalid width or height, currently there is maximum support for 64x64 sprites ({0}, {1})", detail.Width, detail.Height));
                         }
                     }
                 }
